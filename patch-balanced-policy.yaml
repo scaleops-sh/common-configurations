@@ -1,0 +1,16 @@
+spec:
+  policyOptimize:
+    rightSizePolicy:
+      limitConfigs:
+        cpu:
+          noLimit: true
+      requestsConfigs:
+        cpu:
+          minAllowed: 100m
+          percentilePercentage: 99
+        memory:
+          minAllowed: 100M
+  updatePolicy:
+    stabilizationWindowSeconds:
+      scaleDown: 1800
+      scaleUp: 360
