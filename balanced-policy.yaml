@@ -1,12 +1,8 @@
 apiVersion: analysis.scaleops.sh/v1alpha1
 kind: Policy
 metadata:
-  creationTimestamp: "2022-11-20T14:33:46Z"
-  generation: 1
   name: balanced
   namespace: scaleops-system
-  resourceVersion: "3752199"
-  uid: d2f11348-104c-4d82-9266-3c90991a0b19
 spec:
   completionStrategy:
     completionStrategyType: Periodical
