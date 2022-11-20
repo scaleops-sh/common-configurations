@@ -10,8 +10,8 @@ spec:
           maxAllowed: 7
           percentilePercentage: 99
         memory:
-          minAllowed: 100M
-          maxAllowed: 15G
+          minAllowed: 100Mi
+          maxAllowed: 15Gi
   updatePolicy:
     stabilizationWindowSeconds:
       scaleDown: 1800
