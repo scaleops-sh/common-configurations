@@ -7,9 +7,11 @@ spec:
       requestsConfigs:
         cpu:
           minAllowed: 100m
+          #maxAllowed: 6
           percentilePercentage: 99
         memory:
           minAllowed: 100M
+          #maxAllowed: 8G
   updatePolicy:
     stabilizationWindowSeconds:
       scaleDown: 1800
