@@ -1,0 +1,65 @@
+apiVersion: analysis.scaleops.sh/v1alpha1
+kind: Policy
+metadata:
+  creationTimestamp: "2022-11-20T14:33:46Z"
+  generation: 1
+  name: balanced
+  namespace: scaleops-system
+  resourceVersion: "3752199"
+  uid: d2f11348-104c-4d82-9266-3c90991a0b19
+spec:
+  completionStrategy:
+    completionStrategyType: Periodical
+    periodSeconds: 30
+  policyOptimize:
+    priority:
+      name: ""
+    rightSizePolicy:
+      limitConfigs:
+        cpu:
+          headroomPercentage: 150
+          keepLimit: false
+          name: 168h
+          noLimit: false
+          percentilePercentage: 99
+        memory:
+          headroomPercentage: 50
+          keepLimit: false
+          name: 168h
+          noLimit: false
+          percentilePercentage: 99
+      requestsConfigs:
+        cpu:
+          headroomPercentage: 30
+          minAllowed: 100m
+          name: 168h
+          percentilePercentage: 95
+        memory:
+          headroomPercentage: 30
+          minAllowed: 100M
+          name: 168h
+          percentilePercentage: 99
+      window: 168h
+    scaleOutPolicy:
+      enabled: false
+      scaleOutBehavior:
+        scaelDownStabilizationWindowSeconds: 300
+        scaelUpStabilizationWindowSeconds: 300
+  type: Optimize
+  updatePolicy:
+    bootTime: false
+    evictionSchedule:
+      scaleDown: '* * * * *'
+      scaleUp: '* * * * *'
+    maxUnavailablePodsPercentage: 10
+    minReplicas: 1
+    minScaleDownChangeDiff:
+      cpu: 0.1
+      memory: 0.1
+    minScaleUpChangeDiff:
+      cpu: 0.1
+      memory: 0.1
+    stabilizationWindowSeconds:
+      scaleDown: 3600
+      scaleUp: 3600
+    updateMode: Ongoing
