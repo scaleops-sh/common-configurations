@@ -1,0 +1,38 @@
+apiVersion: analysis.scaleops.sh/v1alpha1
+kind: Policy
+metadata:
+  name: development
+  namespace: scaleops-system
+  annotations:
+    helm.sh/resource-policy: keep
+spec:
+  type: Optimize
+  completionStrategy:
+    completionStrategyType: Periodical
+    periodSeconds: 25
+  policyOptimize:
+    rightSizePolicy:
+      window: 1h
+      requestsConfigs:
+        cpu:
+          percentilePercentage: 75
+          headroomPercentage: 5
+        memory:
+          percentilePercentage: 90
+          headroomPercentage: 10
+      limitConfigs:
+        cpu:
+          percentilePercentage: 99
+          noLimit: true
+        memory:
+          percentilePercentage: 99
+          noLimit: true
+  updatePolicy:
+    maxUnavailablePodsPercentage: 10
+    minReplicas: 0
+    stabilizationWindowSeconds:
+      scaleDown: 1800
+      scaleUp: 360
+    evictionSchedule:
+      scaleDown: '* * * * *'
+      scaleUp: '* * * * *'
