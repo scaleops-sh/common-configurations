@@ -23,7 +23,7 @@ spec:
           headroomPercentage: 10
       limitConfigs:
         cpu:
-          percentilePercentage: 99
+          percentilePercentage: 90
           noLimit: true
         memory:
           percentilePercentage: 99
