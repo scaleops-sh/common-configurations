@@ -1,4 +1,3 @@
----
 apiVersion: analysis.scaleops.sh/v1alpha1
 kind: Policy
 metadata:
@@ -23,7 +22,7 @@ spec:
           headroomPercentage: 10
       limitConfigs:
         cpu:
-          percentilePercentage: 90
+          percentilePercentage: 99
           noLimit: true
         memory:
           percentilePercentage: 99
