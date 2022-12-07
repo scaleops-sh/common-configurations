@@ -12,7 +12,7 @@ spec:
     periodSeconds: 25
   policyOptimize:
     rightSizePolicy:
-      window: 1h
+      window: "1h"
       requestsConfigs:
         cpu:
           percentilePercentage: 75
@@ -23,10 +23,10 @@ spec:
       limitConfigs:
         cpu:
           percentilePercentage: 99
-          noLimit: true
+          noLimit: "true"
         memory:
           percentilePercentage: 99
-          noLimit: true
+          noLimit: "true"
   updatePolicy:
     maxUnavailablePodsPercentage: 10
     minReplicas: 0
