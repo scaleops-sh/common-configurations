@@ -1,5 +1,4 @@
-
-
+---
 apiVersion: analysis.scaleops.sh/v1alpha1
 kind: Policy
 metadata:
